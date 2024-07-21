@@ -16,11 +16,9 @@ changeColorButton.style.padding = "8px 16px";
 changeColorButton.style.width = "148px";
 changeColorButton.style.height = "40px";
 changeColorButton.style.background = "#4e75ff";
-changeColorButton.style.fontFamily = "Montserrat, sans-serif";
 changeColorButton.style.fontWeight = 500;
 changeColorButton.style.fontSize = "16px";
 changeColorButton.style.lineHeight = 1.5;
-changeColorButton.style.letterSpacing = "0.04em";
 changeColorButton.style.color = "#fff";
 
 const colorSpan = document.querySelector('span.color');
@@ -42,15 +40,18 @@ conteinerWidget.style.left = "50%";
 conteinerWidget.style.transform = "translate(-50%, -50%)";
 
 const colorTitle = conteinerWidget.querySelector('p');
-colorTitle.style.fontFamily = "Montserrat, sans-serif";
 colorTitle.style.fontWeight = 400;
 colorTitle.style.fontSize = "16px";
 colorTitle.style.lineHeight = 1.5
-colorTitle.style.letterSpacing = "0.04em";
-colorTitle.style.color = "#2e2f42";
 
 changeColorButton.addEventListener('click', function() {
     const newColor = getRandomHexColor();
     document.body.style.backgroundColor = newColor;
     colorSpan.textContent = newColor;
 });
+
+var styleElement = document.createElement('style');
+styleElement.appendChild(document.createTextNode(
+    "body { font-family: 'Montserrat', sans-serif; letter spacing: 0.04em; color = #2e2f42; }"
+));
+document.head.appendChild(styleElement)

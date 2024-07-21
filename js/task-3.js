@@ -1,10 +1,7 @@
 const inputElement = document.getElementById("name-input");
-inputElement.style.fontFamily = "Montserrat, sans-serif";
 inputElement.style.fontWeight = 400;
 inputElement.style.fontSize = "16px";
 inputElement.style.lineHeight = 1.5;
-inputElement.style.letterSpacing = "0.04em";
-inputElement.style.color = "#2e2f42";
 inputElement.style.border = "1px solid #808080";
 inputElement.style.borderRadius = "4px";
 inputElement.style.width = "360px";
@@ -21,12 +18,9 @@ inputElement.addEventListener("input", function() {
 });
 
 const categoryTitle = document.querySelector("h1")
-categoryTitle.style.fontFamily = "Montserrat, sans-serif";
 categoryTitle.style.fontweight = 600;
 categoryTitle.style.fontSize = "24px";
 categoryTitle.style.lineHeight = 1.33;
-categoryTitle.style.letterSpacing = "0.04em";
-categoryTitle.style.color = "#2e2f42";
 categoryTitle.style.margin = 0;
 
 const container = document.createElement("div");
@@ -47,6 +41,12 @@ container.appendChild(inputElement);
 container.appendChild(categoryTitle);
 
 document.body.appendChild(container);
+
+var styleElement = document.createElement('style');
+styleElement.appendChild(document.createTextNode(
+    "body { font-family: 'Montserrat', sans-serif; letter spacing: 0.04em; color = #2e2f42; }"
+));
+document.head.appendChild(styleElement)
 
  
 

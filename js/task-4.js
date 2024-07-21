@@ -7,12 +7,9 @@ form.style.borderRadius = "8px";
 form.style.padding = "24px";
 form.style.width = "408px";
 form.style.background = "#fff";
-form.style.fontFamily = "Montserrat, sans-serif";
 form.style.fontWeight = 400;
 form.style.fontSize = "16px";
 form.style.lineHeight = 1.5;
-form.style.letterSpacing = "0.04em";
-form.style.color = "#2e2f42";
 form.style.position = "absolute";
 form.style.top = "50%";
 form.style.left = "50%";
@@ -73,3 +70,9 @@ logBtn.style.fontSize = "16px";
 logBtn.style.lineHeight = 1.5;
 logBtn.style.letterSpacing = "0.04em";
 logBtn.style.color = "#fff";
+
+var styleElement = document.createElement('style');
+styleElement.appendChild(document.createTextNode(
+    "body { font-family: 'Montserrat', sans-serif; letter spacing: 0.04em; color = #2e2f42; }"
+));
+document.head.appendChild(styleElement)

@@ -28,24 +28,24 @@ containerControls.style.width = "486px";
 containerControls.style.height = "104px";
 containerControls.style.background = "#f6f6fe";
 
-function createBoxes(amount) {
-  const boxesContainer = document.getElementById('boxes');
+function createBoxes(quantity) {
+  const boxesContainer = document.querySelector('#boxes');
   boxesContainer.innerHTML = '';
 
   let size = 30;
+  let boxesHTML = '';
 
-  for (let i = 0; i < amount; i++) {
-    const box = document.createElement('div');
-    box.style.width = `${size}px`;
-    box.style.height = `${size}px`;
-    box.style.backgroundColor = getRandomHexColor();
-    boxesContainer.appendChild(box);
+  for (let i = 0; i < quantity; i++) {
+    const backgroundColor = getRandomHexColor();
+    boxesHTML += `<div style="width: ${size}px; height: ${size}px; background-color: ${backgroundColor};"></div>`;
     size += 10;
   }
+
+  boxesContainer.innerHTML = boxesHTML;
 }
 
 function destroyBoxes() {
-  const boxesContainer = document.getElementById('boxes');
+  const boxesContainer = document.querySelector('#boxes');
   boxesContainer.innerHTML = '';
 }
 
@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
   createButton.style.fontWeight = 500;
   createButton.style.fontSize = "16px";
   createButton.style.lineHeight = 1.5;
-  createButton.style.letterSpacing = "0.04em";
   createButton.style.color = "#fff";
 
   const destroyButton = document.querySelector('[data-destroy]');
@@ -83,15 +82,14 @@ document.addEventListener('DOMContentLoaded', function() {
   destroyButton.style.fontWeight = 500;
   destroyButton.style.fontSize = "16px";
   destroyButton.style.lineHeight = 1.5;
-  destroyButton.style.letterSpacing = "0.04em";
   destroyButton.style.color = "#fff";
 
   const input = document.querySelector('input[type="number"]');
   
   createButton.addEventListener("click", () => {
-    const amount = parseInt(input.value);
-    if (amount >= 1 && amount <= 100) {
-      createBoxes(amount);
+    const quantity = parseInt(input.value);
+    if (quantity >= 1 && quantity <= 100) {
+      createBoxes(quantity);
       input.value = '';
     } else {
       alert('Please enter a number between 1 and 100.');
@@ -110,3 +108,9 @@ const boxesContainer = document.querySelector('#boxes');
     boxesContainer.style.rowGap = "44px";
     boxesContainer.style.columnGap = "44px";
     boxesContainer.style.padding = "0 32px"
+    
+var styleElement = document.createElement('style');
+styleElement.appendChild(document.createTextNode(
+    "body { font-family: 'Montserrat', sans-serif; letter spacing: 0.04em; color = #2e2f42; }"
+));
+document.head.appendChild(styleElement)
